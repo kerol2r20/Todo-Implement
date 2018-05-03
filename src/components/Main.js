@@ -1,13 +1,19 @@
 import React, { Component } from "react";
 import classNames from "classnames";
+import { connect } from "react-redux";
 
 const Todo = props => {
   return (
-    <li className={classNames({completed: props.completed})}>
+    <li className={classNames({ completed: props.completed })}>
       <div className="view">
-        <input type="text" className="toggle" type="checkbox" checked={props.completed} />
+        <input
+          type="text"
+          className="toggle"
+          type="checkbox"
+          checked={props.completed}
+        />
         <label>{props.content}</label>
-        <button className="destroy" onClick={() => console.log('h2')} />
+        <button className="destroy" onClick={() => console.log("h2")} />
       </div>
     </li>
   );
@@ -20,12 +26,15 @@ class Main extends Component {
         <input className="toggle-all" type="checkbox" />
         <label>Mark all as complete</label>
         <ul className="todo-list">
-          <Todo content={"Hello world"} />
-          <Todo content="GuguG" completed={true} />
+          {this.props.todos.map(todo => <Todo key={todo.id} content={todo.content} completed={todo.completed} />)}
         </ul>
       </section>
     );
   }
 }
 
-export default Main;
+function mapStateToProps(state) {
+  return { todos: state.todos };
+}
+
+export default connect(mapStateToProps)(Main);

@@ -1,23 +1,27 @@
 import crypto from "crypto";
 
-function addTodo(content) {
+export function addTodo(content) {
   const todoInfo = {
     createdTime: new Date(),
     content
-  }
-  const id = crypto.createHash('sha1').update(JSON.stringify(todoInfo), 'utf8').digest('hex')
+  };
+  const id = crypto
+    .createHash("sha1")
+    .update(JSON.stringify(todoInfo), "utf8")
+    .digest("hex");
   return {
-    type: 'ADD_TODO',
+    type: "ADD_TODO",
     payload: {
       ...todoInfo,
-      id
+      id,
+      completed: false
     }
   };
 }
 
-function delTodo(id) {
+export function delTodo(id) {
   return {
-    type: 'DELETE_TODO',
+    type: "DELETE_TODO",
     id
-  }
+  };
 }
