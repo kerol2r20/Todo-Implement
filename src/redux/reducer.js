@@ -34,6 +34,11 @@ function todoApp(state = fromJS(initState), action) {
         return state.updateIn(["todos"], todos =>
         todos.map(todo => todo.set("completed", true)))
       }
+    case "MODIFY_TODO":
+      return state.updateIn(['todos'], todos => {
+        const idx = todos.findIndex(todo => todo.get('id')===action.id)
+        return todos.setIn([idx, 'content'], action.content)
+      })
     default:
       return state;
   }

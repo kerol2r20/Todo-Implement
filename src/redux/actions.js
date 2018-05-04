@@ -44,3 +44,11 @@ export function toggleAllTodos() {
     type: "TOGGLE_ALL_TODOS"
   }
 }
+
+export function modifyTodo(id, content) {
+  return {
+    type: "MODIFY_TODO",
+    id,
+    content
+  }
+}

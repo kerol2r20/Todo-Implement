@@ -11,7 +11,8 @@ import {
   delTodo,
   toggleTodo,
   clearCompletedTodo,
-  toggleAllTodos
+  toggleAllTodos,
+  modifyTodo
 } from "./redux/actions";
 
 class Layout extends Component {
@@ -36,6 +37,7 @@ class Layout extends Component {
             toggleCompleted={this.props.toggleTodo}
             delTodo={this.props.delTodo}
             toggleAllTodos={this.props.toggleAllTodos}
+            modifyTodo={this.props.modifyTodo}
             filter={filter}
           />
         ) : null}
@@ -69,6 +71,7 @@ function mapDispatchToProps(dispatch) {
     toggleTodo: bindActionCreators(toggleTodo, dispatch),
     clearCompletedTodo: bindActionCreators(clearCompletedTodo, dispatch),
     toggleAllTodos: bindActionCreators(toggleAllTodos, dispatch),
+    modifyTodo: bindActionCreators(modifyTodo, dispatch),
     dispatch
   };
 }

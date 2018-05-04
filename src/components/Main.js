@@ -30,6 +30,7 @@ class Main extends Component {
                 todoInfo={todo}
                 toggleCompleted={this.props.toggleCompleted}
                 delTodo={this.props.delTodo}
+                modifyTodo={this.props.modifyTodo}
               />
             ))}
         </ul>
