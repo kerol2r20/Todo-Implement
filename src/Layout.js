@@ -5,7 +5,7 @@ import "todomvc-app-css/index.css";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
 import Header from "./components/Header";
-import { addTodo, delTodo, toggleTodo } from "./redux/actions";
+import { addTodo, delTodo, toggleTodo, clearCompletedTodo } from "./redux/actions";
 
 class Layout extends Component {
   render() {
@@ -23,6 +23,7 @@ class Layout extends Component {
           <Footer
             num_completed_todos={this.props.todos.filter(todo => todo.get("completed")).size}
             num_uncompleted_todos={this.props.todos.filter(todo => !todo.get("completed")).size}
+            clear_complete_action={this.props.clearCompletedTodo}
           />
         ) : null}
       </section>
@@ -41,6 +42,7 @@ function mapDispatchToProps(dispatch) {
     addTodo: bindActionCreators(addTodo, dispatch),
     delTodo: bindActionCreators(delTodo, dispatch),
     toggleTodo: bindActionCreators(toggleTodo, dispatch),
+    clearCompletedTodo: bindActionCreators(clearCompletedTodo, dispatch),
     dispatch
   };
 }

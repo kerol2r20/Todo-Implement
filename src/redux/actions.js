@@ -32,3 +32,9 @@ export function toggleTodo(id) {
     id
   };
 }
+
+export function clearCompletedTodo(id) {
+  return {
+    type: "CLEAR_COMPLETE_TODO",
+  };
+}

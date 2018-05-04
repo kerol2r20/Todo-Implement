@@ -18,7 +18,7 @@ class Footer extends Component {
             <a>Complete</a>
           </li>
         </ul>
-        {this.props.num_completed_todos ? <button className="clear-completed">Clear completed</button> : null}
+        {this.props.num_completed_todos ? <button className="clear-completed" onClick={this.props.clear_complete_action}>Clear completed</button> : null}
       </footer>
     );
   }

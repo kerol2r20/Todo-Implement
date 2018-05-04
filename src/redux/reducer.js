@@ -20,6 +20,10 @@ function todoApp(state = fromJS(initState), action) {
         const current_state = todos.getIn([idx, "completed"]);
         return todos.setIn([idx, "completed"], !current_state);
       });
+    case "CLEAR_COMPLETE_TODO":
+      return state.updateIn(["todos"], todos =>
+        todos.filter(todo => todo.get("completed") === false)
+      );
     default:
       return state;
   }
