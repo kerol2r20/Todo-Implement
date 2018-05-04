@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import classNames from 'classnames'
 
 class Footer extends Component {
   render() {
@@ -9,16 +11,23 @@ class Footer extends Component {
         </span>
         <ul className="filters">
           <li>
-            <a>All</a>
+            <Link to="" className={classNames({selected: this.props.filter==='all'})}>All</Link>
           </li>
           <li>
-            <a>Active</a>
+            <Link to="active" className={classNames({selected: this.props.filter==='active'})}>Active</Link>
           </li>
           <li>
-            <a>Complete</a>
+            <Link to="completed" className={classNames({selected: this.props.filter==='completed'})}>Completed</Link>
           </li>
         </ul>
-        {this.props.num_completed_todos ? <button className="clear-completed" onClick={this.props.clear_complete_action}>Clear completed</button> : null}
+        {this.props.num_completed_todos ? (
+          <button
+            className="clear-completed"
+            onClick={this.props.clear_complete_action}
+          >
+            Clear completed
+          </button>
+        ) : null}
       </footer>
     );
   }
