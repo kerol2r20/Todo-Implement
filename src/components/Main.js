@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import TodoItem from "./TodoItem";
 
 class Main extends Component {
+  handleToggleKey(event) {  
+  }
   render() {
     return (
       <section className="main">
         <input className="toggle-all" type="checkbox" />
-        <label htmlFor="toggle-all">Mark all as complete</label>
+        <label htmlFor="toggle-all" onClick={this.props.toggleAllTodos}>Mark all as complete</label>
         <ul className="todo-list">
           {this.props.todos.map(todo => (
             <TodoItem

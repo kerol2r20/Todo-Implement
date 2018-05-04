@@ -24,6 +24,16 @@ function todoApp(state = fromJS(initState), action) {
       return state.updateIn(["todos"], todos =>
         todos.filter(todo => todo.get("completed") === false)
       );
+    case "TOGGLE_ALL_TODOS":
+      const num_uncomplete = state.get("todos").filter(todo => todo.get('completed')===false).size
+      if (num_uncomplete === 0) {
+        return state.updateIn(["todos"], todos =>
+        todos.map(todo => todo.set("completed", false))
+      )}
+      else {
+        return state.updateIn(["todos"], todos =>
+        todos.map(todo => todo.set("completed", true)))
+      }
     default:
       return state;
   }
