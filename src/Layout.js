@@ -5,7 +5,6 @@ import "todomvc-app-css/index.css";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
 import Header from "./components/Header";
-import store from "./redux/store";
 import { addTodo, delTodo,toggleTodo } from "./redux/actions";
 
 class Layout extends Component {

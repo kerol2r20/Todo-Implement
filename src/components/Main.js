@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import classNames from "classnames";
 import TodoItem from "./TodoItem";
 
 class Main extends Component {

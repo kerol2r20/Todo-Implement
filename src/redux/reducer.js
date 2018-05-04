@@ -1,4 +1,4 @@
-import { fromJS, getIn } from "immutable";
+import { fromJS } from "immutable";
 
 const initState = {
   todos: []

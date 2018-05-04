@@ -7,7 +7,6 @@ class TodoItem extends Component {
       <li className={classNames({ completed: this.props.todoInfo.completed })}>
         <div className="view">
           <input
-            type="text"
             className="toggle"
             type="checkbox"
             checked={this.props.todoInfo.completed}
