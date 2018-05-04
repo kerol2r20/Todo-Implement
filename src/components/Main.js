@@ -14,6 +14,7 @@ class Main extends Component {
               key={todo.id}
               todoInfo={todo}
               toggleCompleted={this.props.toggleCompleted}
+              delTodo={this.props.delTodo}
             />
           ))}
         </ul>

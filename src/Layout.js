@@ -6,14 +6,14 @@ import Footer from "./components/Footer";
 import Main from "./components/Main";
 import Header from "./components/Header";
 import store from "./redux/store";
-import { addTodo, toggleTodo } from "./redux/actions";
+import { addTodo, delTodo,toggleTodo } from "./redux/actions";
 
 class Layout extends Component {
   render() {
     return (
       <section className="todoapp">
         <Header action={this.props.addTodo} />
-        <Main todos={this.props.todos} toggleCompleted={this.props.toggleTodo} />
+        <Main todos={this.props.todos} toggleCompleted={this.props.toggleTodo} delTodo={this.props.delTodo} />
         {this.props.todos.length >0 ? <Footer num_todos={this.props.todos.length}/> : null}
       </section>
     );
@@ -29,6 +29,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
   return {
     addTodo: bindActionCreators(addTodo, dispatch),
+    delTodo: bindActionCreators(delTodo, dispatch),
     toggleTodo: bindActionCreators(toggleTodo, dispatch),
     dispatch
   };

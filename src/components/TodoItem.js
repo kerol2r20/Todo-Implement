@@ -14,7 +14,7 @@ class TodoItem extends Component {
             onClick={(event) => this.props.toggleCompleted(this.props.todoInfo.id)}
           />
           <label htmlFor="content">{this.props.todoInfo.content}</label>
-          <button className="destroy" onClick={() => console.log("h2")} />
+          <button className="destroy" onClick={() => this.props.delTodo(this.props.todoInfo.id)} />
         </div>
       </li>
     );
