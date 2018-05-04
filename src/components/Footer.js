@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
 
 class Footer extends Component {
   render() {
@@ -17,8 +16,4 @@ class Footer extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return { num_todos: state.todos && state.todos.toJS().length };
-}
-
-export default connect(mapStateToProps)(Footer);
+export default Footer;
