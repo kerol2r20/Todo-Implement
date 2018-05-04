@@ -10,7 +10,7 @@ class Main extends Component {
         <ul className="todo-list">
           {this.props.todos.map(todo => (
             <TodoItem
-              key={todo.id}
+              key={todo.get('id')}
               todoInfo={todo}
               toggleCompleted={this.props.toggleCompleted}
               delTodo={this.props.delTodo}

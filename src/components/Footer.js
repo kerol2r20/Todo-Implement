@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+// FIXME: item left 數量為未完成數量，現在為全部 todo 之數量
 class Footer extends Component {
   render() {
     return (

@@ -5,15 +5,23 @@ import "todomvc-app-css/index.css";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
 import Header from "./components/Header";
-import { addTodo, delTodo,toggleTodo } from "./redux/actions";
+import { addTodo, delTodo, toggleTodo } from "./redux/actions";
 
 class Layout extends Component {
   render() {
     return (
       <section className="todoapp">
         <Header action={this.props.addTodo} />
-        <Main todos={this.props.todos} toggleCompleted={this.props.toggleTodo} delTodo={this.props.delTodo} />
-        {this.props.todos.length >0 ? <Footer num_todos={this.props.todos.length}/> : null}
+        {this.props.todos.size > 0 ? (
+          <Main
+            todos={this.props.todos}
+            toggleCompleted={this.props.toggleTodo}
+            delTodo={this.props.delTodo}
+          />
+        ) : null}
+        {this.props.todos.size > 0 ? (
+          <Footer num_todos={this.props.todos.size} />
+        ) : null}
       </section>
     );
   }
@@ -21,7 +29,7 @@ class Layout extends Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    todos: state.toJS().todos
+    todos: state.get("todos")
   };
 }
 
