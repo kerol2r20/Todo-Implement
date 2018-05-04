@@ -1,4 +1,4 @@
-import { fromJS } from "immutable";
+import { fromJS, getIn } from "immutable";
 
 const initState = {
   todos: []
@@ -7,9 +7,19 @@ const initState = {
 function todoApp(state = fromJS(initState), action) {
   switch (action.type) {
     case "ADD_TODO":
-      return state.updateIn(['todos'], todos => todos.push(action.payload))
+      return state.updateIn(["todos"], todos =>
+        todos.push(fromJS(action.payload))
+      );
     case "DELETE_TODO":
-      return state.updateIn(['todos'], todos => todos.filter(todo => todo.id !== action.id))
+      return state.updateIn(["todos"], todos =>
+        todos.filter(todo => todo.get("id") !== action.id)
+      );
+    case "TOGGLE_TODO":
+      return state.updateIn(["todos"], todos => {
+        const idx = todos.findIndex(todo => todo.get("id") === action.id);
+        const current_state = todos.getIn([idx, "completed"]);
+        return todos.setIn([idx, "completed"], !current_state);
+      });
     default:
       return state;
   }

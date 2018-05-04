@@ -12,8 +12,8 @@ class Main extends Component {
           {this.props.todos.map(todo => (
             <TodoItem
               key={todo.id}
-              content={todo.content}
-              completed={todo.completed}
+              todoInfo={todo}
+              toggleCompleted={this.props.toggleCompleted}
             />
           ))}
         </ul>
