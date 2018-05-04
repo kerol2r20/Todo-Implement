@@ -12,7 +12,7 @@ const Todo = props => {
           type="checkbox"
           checked={props.completed}
         />
-        <label>{props.content}</label>
+        <label htmlFor="content">{props.content}</label>
         <button className="destroy" onClick={() => console.log("h2")} />
       </div>
     </li>
@@ -24,7 +24,7 @@ class Main extends Component {
     return (
       <section className="main">
         <input className="toggle-all" type="checkbox" />
-        <label>Mark all as complete</label>
+        <label htmlFor="toggle-all">Mark all as complete</label>
         <ul className="todo-list">
           {this.props.todos.map(todo => <Todo key={todo.id} content={todo.content} completed={todo.completed} />)}
         </ul>
@@ -34,7 +34,7 @@ class Main extends Component {
 }
 
 function mapStateToProps(state) {
-  return { todos: state.todos };
+  return { todos: state.toJS().todos };
 }
 
 export default connect(mapStateToProps)(Main);
