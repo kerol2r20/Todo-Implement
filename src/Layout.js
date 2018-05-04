@@ -20,7 +20,7 @@ class Layout extends Component {
           />
         ) : null}
         {this.props.todos.size > 0 ? (
-          <Footer num_todos={this.props.todos.size} />
+          <Footer num_todos={this.props.todos.filter(todo => !todo.get('completed')).size} />
         ) : null}
       </section>
     );
