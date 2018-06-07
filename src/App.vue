@@ -1,7 +1,7 @@
 <template>
   <section class="todoapp">
     <Header />
-    <MainSection />
+    <router-view />
     <FooterSection />
   </section>
 </template>
@@ -19,10 +19,9 @@ import FooterSection from "@/views/FooterI.vue";
     FooterSection
   }
 })
-export default class App extends Vue {
-}
+export default class App extends Vue {}
 </script>
 
 <style lang="scss">
-@import './todo.css';
+@import "./todo.css";
 </style>

@@ -5,9 +5,9 @@
        items left
     </span>
     <ul class="filters">
-      <li><a href="#" class="selected">All</a></li>
-      <li><a href="#">Active</a></li>
-      <li><a href="#">Completed</a></li>
+      <li><router-link :to="{name: 'root'}" active-class="selected" exact>All</router-link></li>
+      <li><router-link :to="{name: 'active'}" active-class="selected">Active</router-link></li>
+      <li><router-link :to="{name: 'completed'}" active-class="selected">Completed</router-link></li>
     </ul>
     <button v-if="numCompletedTodos!==0" class="clear-completed" @click="handleRemoveAllCompletedTodo">Clear completed</button>
   </footer>
@@ -33,10 +33,10 @@ export default class MainSection extends Vue {
   @Getter("numCompletedTodos") numCompletedTodos?: number;
 
   handleRemoveAllCompletedTodo() {
+    console.log(this.$route.name);
     this.$store.commit({
       type: "removeAllCompletedTodo"
-    })
+    });
   }
 }
 </script>
-

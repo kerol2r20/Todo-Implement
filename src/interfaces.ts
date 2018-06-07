@@ -7,3 +7,9 @@ export interface todo {
 export interface state {
   todos: todo[];
 }
+
+export enum todoFilter {
+  All,
+  OnlyActive,
+  OnlyCompleted
+}

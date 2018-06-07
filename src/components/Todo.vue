@@ -16,10 +16,11 @@ export default class Todo extends Vue {
   @Prop() private content?: string;
   @Prop() private completed?: boolean;
   private c_completed?: boolean = this.completed;
-  @Emit() toggleCompleted() {
+  @Emit()
+  toggleCompleted() {
     this.c_completed = !this.c_completed;
   }
-  @Emit() removeTodo() {}
+  @Emit()
+  removeTodo() {}
 }
 </script>
-

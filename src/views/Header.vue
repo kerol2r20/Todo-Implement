@@ -19,6 +19,4 @@ export default class Header extends Vue {
     this.newContent = "";
   }
 }
-
 </script>
-
