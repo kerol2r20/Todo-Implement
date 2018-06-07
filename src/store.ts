@@ -39,6 +39,10 @@ export default new Vuex.Store<state>({
       });
       saveStateToLocalStorage(state);
     },
+    editTodo(state, payload: { todoIndex: number; content: string }) {
+      state.todos[payload.todoIndex].content = payload.content;
+      saveStateToLocalStorage(state);
+    },
     toggleAllTodo(state) {
       if (state.todos.filter(todo => !todo.completed).length === 0) {
         state.todos = state.todos.map<todo>(todo => {

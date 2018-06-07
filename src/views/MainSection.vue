@@ -10,6 +10,7 @@
             :completed="todo.completed" 
             @toggle-completed="handleToggleCompleted(index)" 
             @remove-todo="handleRemoveTodo(index)"
+            @end-edit="handleEditTodo(index, $event)"
           />
         </template>
     </ul>
@@ -67,6 +68,14 @@ export default class MainSection extends Vue {
     this.$store.commit({
       type: "removeTodo",
       todoIndex
+    });
+  }
+
+  handleEditTodo(todoIndex: number, content: string) {
+    this.$store.commit({
+      type: "editTodo",
+      todoIndex,
+      content
     });
   }
 

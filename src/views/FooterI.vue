@@ -33,7 +33,6 @@ export default class MainSection extends Vue {
   @Getter("numCompletedTodos") numCompletedTodos?: number;
 
   handleRemoveAllCompletedTodo() {
-    console.log(this.$route.name);
     this.$store.commit({
       type: "removeAllCompletedTodo"
     });
